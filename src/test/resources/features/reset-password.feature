@@ -38,4 +38,4 @@ Feature:  Re-initialisation de mot de passe oublié
 
 		Examples:
 			|login                   |urlHomePageEmail                   				 |expectedFirstEmailTitle|
-			|cafard@yopmail.com      |https://yopmail.com/fr/wm                  |Automation Testing|
+			|cafard@yopmail.com      |https://yopmail.com/fr/wm                  |1|

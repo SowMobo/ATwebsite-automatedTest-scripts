@@ -49,7 +49,7 @@ Feature: Passation des commandes
 	#RG5 : Un filtre permet d'affiner la vue des articles par thème
 	#RG6 : Chaque article contient une photo descriptive, un libellé et le prix affiché au-dessous. Un lien actif sur ces 3
 	#éléments redirige vers le détail de l'article
-	@TEST_POEI23P2G1-29 @TESTSET_POEI23P2G1-51 @Commande @add-to-cart-sans-connexion
+	@TEST_POEI23P2G1-29 @TESTSET_POEI23P2G1-51 @tnrV6 @Commande @add-to-cart-sans-connexion
 	Scenario: Valider que le lien dans l'icône BASKET renvoie vers la page panier en partant de la page produit
 		Given je ouvre le site AT
 		When  je click sur le lien shop

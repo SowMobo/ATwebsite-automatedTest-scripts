@@ -39,7 +39,7 @@ Feature: Finalisation des achats
 	#permettant d’apppliquer un code promotionnel sur la commande
 	#RG3 : Un pavé récapitulatif "Basket Totals" spécifie le prix total et la taxe associée
 	#RG4 : Un bouton "Proceed to Checkout" permet de valider la commande et de passer au paiement"
-	@TEST_POEI23P2G1-34 @TESTSET_POEI23P2G1-51 @Commande @choisir-quantity
+	@TEST_POEI23P2G1-34 @TESTSET_POEI23P2G1-51 @tnrV6 @Commande @choisir-quantity
 	Scenario Outline: Valider la suppression et la modification de la quantité des articles
 		Given je me connecte avec "<login>" et "<password>"
 		When  je click sur le lien shop

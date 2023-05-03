@@ -16,7 +16,7 @@ Feature: Déconnexion de l’espace Client
 	#
 	# *RG1 :* Dans l'espace "My Account" un lien "Logout" permet la déconnexion, la page Account affiche les pavé de "Login" et de "Register”
 
-	@TEST_POEI23P2G1-24 @TESTSET_POEI23P2G1-49 @authentification @deconnexion
+	@TEST_POEI23P2G1-24 @TESTSET_POEI23P2G1-49 @tnrV6 @authentification @deconnexion
 	Scenario Outline: Valider la déconnexion en cliquant sur le lien logout
 		Given je me connecte avec "<login>" et "<password>"
 		When je click sur le lien Logout

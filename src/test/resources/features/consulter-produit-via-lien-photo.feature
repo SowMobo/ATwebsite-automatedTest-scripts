@@ -43,7 +43,7 @@ Feature: Passation des commandes
 	#RG5 : Un filtre permet d'affiner la vue des articles par thème
 	#RG6 : Chaque article contient une photo descriptive, un libellé et le prix affiché au-dessous. Un lien actif sur ces 3
 	#éléments redirige vers le détail de l'article
-	@TEST_POEI23P2G1-30 @TESTSET_POEI23P2G1-51 @Commande @consulter-produit-via-photo
+	@TEST_POEI23P2G1-30 @TESTSET_POEI23P2G1-51 @tnrV6 @Commande @consulter-produit-via-photo
 	Scenario: Valider la presentation dun article via des liens actifs (photo, un libelle et le prix)  qui  redirigent vers le detail de larticle
 		Given je ouvre le site AT
 		When  je click sur le lien shop

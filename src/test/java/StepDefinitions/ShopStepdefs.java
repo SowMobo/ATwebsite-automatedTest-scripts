@@ -88,4 +88,24 @@ public class ShopStepdefs {
     public void jeJeSelectLeFiltrePriceHighToLow() {
         shop.sortByPriceHighToLow();
     }
+
+    @And("je saisis  mon mail {string} a SUBSCRIRE")
+    public void jeSaisisMonMailASUBSCRIRE(String arg0) {
+        shop.enterAnEmailToSubscribe(arg0);
+    }
+
+    @And("je click sur le bouton SUBSCRIBE")
+    public void jeClickSurLeBoutonSUBSCRIBE() {
+        shop.subscribeToATNewsletter();
+    }
+
+    @Then("un message erreur email inavlide est affiche {string}")
+    public void unMessageErreurEmailInavlideEstAffiche(String arg0) {
+        Assert.assertEquals(arg0, shop.getInvalidEmailErrorMessage());
+    }
+
+    @Then("un message de confirmation de subscription est affiche {string}")
+    public void unMessageDeConfirmationDeSubscriptionEstAffiche(String arg0) {
+        Assert.assertEquals(arg0, shop.getInvalidEmailErrorMessage());
+    }
 }

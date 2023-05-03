@@ -24,7 +24,7 @@ Feature: Finalisation des achats
 	#
 	#*RG5 :* Un bouton "Proceed to Checkout" permet de valider la commande et de passer au paiement"
 
-	@TEST_POEI23P2G1-33 @TESTSET_POEI23P2G1-51 @Commande @recap-ajout-panier
+	@TEST_POEI23P2G1-33 @TESTSET_POEI23P2G1-51 @confirmation @Commande @recap-ajout-panier
 	Scenario Outline: Valider que la page panier affiche un récapitulatif des articles ajoutes
 		Given je me connecte avec "<login>" et "<password>"
 		When  je click sur le lien shop

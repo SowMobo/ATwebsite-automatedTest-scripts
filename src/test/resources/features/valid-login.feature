@@ -44,6 +44,6 @@ Feature: Connexion a un compte
 		And   je click sur le button LOGIN
 		Then  le nom utilisateur est affichee sur la page My Account "<expectedUserName>"
 		Examples:
-		  |login     |password      |expectedUserName|
-		  |sowmodibo62@gmail.com  |passwordSowModibo1&  |sowmodibo62|
-		  |user.1@yahoo.fr   |passwordUser1&   |user.1|
+		  |login                     |password             |expectedUserName|
+		  |sowmodibo62@gmail.com     |passwordSowModibo1&  |sowmodibo62|
+		  |user.1@yahoo.fr            |passwordUser1&       |user.1|
