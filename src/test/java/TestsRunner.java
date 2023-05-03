@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = {"@reset-paassword"},
+        tags = {"@tnrV6"},
         features = "src/test/resources/features",
         glue = "StepDefinitions",
         plugin = { "pretty", "html:target/cucumber-reports","json:target/cucumber.json" }

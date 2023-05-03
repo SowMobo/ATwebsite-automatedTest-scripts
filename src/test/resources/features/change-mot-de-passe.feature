@@ -38,7 +38,7 @@ Feature: Gestion de compte
 		And   je saisis mon de passe passe actuel "<passowrd>"
 		And   je saisis mon nouveau mot de passe "<newPassword>"
 		And   je confirme mon nouveau mot de passe "<newPassowrd>"
-		Then  le nom utilisateur est affichee sur la page My Acount "<expectedUserName>"
+		Then  le nom utilisateur est affichee sur la page My Account "<expectedUserName>"
 		Examples:
 		  |login                             |password                        |newPassword                  |expectedUserName|
 		  |sowmodibo62@gmail.com             |passwordSowModibo1&             |passwordSowModibo3$          |sowmodibo62|

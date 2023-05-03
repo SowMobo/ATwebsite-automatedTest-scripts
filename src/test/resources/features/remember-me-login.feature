@@ -45,7 +45,7 @@ Feature: Connexion a un compte
 		And   je click sur le button LOGIN
 		And   je click sur le lien Logout
 		And   je saisis mon mot de passe "<password>"
-		Then  le nom utilisateur est affichee sur la page My Acount "<expectedUserName>"
+		Then  le nom utilisateur est affichee sur la page My Account "<expectedUserName>"
 		Examples:
 		  |login     |password      |expectedUserName|
 		  |sowmodibo62@gmail.com  |passwordSowModibo1&  |sowmodibo62|

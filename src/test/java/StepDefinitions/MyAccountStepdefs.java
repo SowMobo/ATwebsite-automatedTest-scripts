@@ -32,4 +32,5 @@ public class MyAccountStepdefs {
     public void leNomUtilisateurEstAfficheeSurLaPageMyAccount(String arg0) {
         Assert.assertTrue(myAccount.getWelcomeMsg().contains(arg0));
     }
+
 }
