@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = {"@authentification"},
+        tags = {"@Reseasu_Sociaux"},
         features = "src/test/resources/features",
         glue = "StepDefinitions",
         plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json"}

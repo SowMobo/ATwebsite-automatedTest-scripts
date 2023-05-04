@@ -45,10 +45,10 @@ public class BasketStepdefs {
     @And("je augmente la quantite {string}")
     public void jeAugmenteLaQuantite(String arg0) {
         basket.increaseQtyBy(arg0);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 }
