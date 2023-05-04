@@ -39,6 +39,6 @@ public class Hook {
                 System.err.println(noSupportScreenshot.getMessage());
             }
         }
-//        driver.quit();
+        driver.quit();
     }
 }

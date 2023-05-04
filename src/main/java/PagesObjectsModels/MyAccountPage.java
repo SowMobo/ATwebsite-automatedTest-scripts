@@ -32,6 +32,7 @@ public class MyAccountPage extends BasePage {
      */
     public AccountDetailsPage openAccountDetailsPage() {
         this.openAPageFromMyAccountPage(4);
+        this.closePopup();
         return new AccountDetailsPage(driver);
     }
 

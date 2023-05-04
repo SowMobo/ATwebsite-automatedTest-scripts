@@ -24,7 +24,7 @@ public class UserEmailAccountStepdefs {
 
     @Then("je recois un email au bout de dix min {string}")
     public void jeRecoisUnEmailAuBoutDeDixMin(String arg0) {
-        Assert.assertTrue(userEmailAccountPage.getTitleOffirstEmailReceived().contains(arg0));
+        Assert.assertTrue(userEmailAccountPage.getNumberOfEmailReceived().contains(arg0));
     }
 
 

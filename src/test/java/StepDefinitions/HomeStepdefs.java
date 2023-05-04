@@ -22,7 +22,7 @@ public class HomeStepdefs {
     @When("je click sur le lien My Account")
     public void jeClickSurLeLienMyAccount() {
         home.openAuthenticationPage();
-        home.closeAd();
+        home.closePopup();
     }
 
 

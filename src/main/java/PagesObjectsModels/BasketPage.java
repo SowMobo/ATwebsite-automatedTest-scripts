@@ -33,11 +33,11 @@ public class BasketPage extends BasePage {
     public BasketPage increaseQtyBy(String qty) {
         String initValue = upDownQtySelect().getAttribute("value");
         for(int i=0; i < Integer.parseInt(qty); ++i) {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
             upDownQtySelect().sendKeys(Keys.ARROW_UP);
         }
         return this;
@@ -45,11 +45,11 @@ public class BasketPage extends BasePage {
     public BasketPage decreaseQtyBy(String qty) {
         String initValue = upDownQtySelect().getAttribute("value");
         for(int i=0; i < Integer.parseInt(qty); ++i) {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
             upDownQtySelect().sendKeys(Keys.ARROW_DOWN);
         }
         return this;

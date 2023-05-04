@@ -2,6 +2,7 @@ package Common;
 
 import PagesObjectsModels.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -49,11 +50,38 @@ public class BasePage {
      * @return a Footer object
      */
     public BasePage enterAnEmailToSubscribe(String email) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Actions action = new Actions(driver);
+        // scroll down
+        action.sendKeys(Keys.PAGE_DOWN).build().perform();
+        action.sendKeys(Keys.PAGE_DOWN).build().perform();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         driver.findElement(subscribeTextBoxBy).sendKeys(email);
         return this;
     }
     By subscribeButtonBy = By.xpath("//input[@value='Subscribe']");
     public BasePage subscribeToATNewsletter() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Actions action = new Actions(driver);
+        // scroll down
+        action.sendKeys(Keys.PAGE_DOWN).build().perform();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         driver.findElement(subscribeButtonBy).click();
         return this;
     }
@@ -68,6 +96,12 @@ public class BasePage {
         return driver.findElement(invalidEmailErrorMessage).getText();
     }
 
+    /**
+     * Get the confirmation message displayed after a success subscription
+     */
+    public String getSubscriptionConfirmationMsg() {
+        return driver.findElement(By.cssSelector(".mc4wp-alert.mc4wp-success")).getText();
+    }
 
     @FindBy(id = "site-logo")
     private WebElement logoAT;
