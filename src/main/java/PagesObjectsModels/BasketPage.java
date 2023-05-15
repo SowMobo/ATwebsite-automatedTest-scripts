@@ -17,6 +17,7 @@ public class BasketPage extends BasePage {
 
     /**
      * select quantity to order
+     *
      * @param qty
      * @return a shop page object
      */
@@ -26,13 +27,15 @@ public class BasketPage extends BasePage {
     }
 
     By upDownqtySelectorBy = By.name("cart[9766527f2b5d3e95d4a733fcfb77bd7e][qty]");
+
     private WebElement upDownQtySelect() {
-        return  driver.findElement(upDownqtySelectorBy);
+        return driver.findElement(upDownqtySelectorBy);
     }
 
     public BasketPage increaseQtyBy(String qty) {
         String initValue = upDownQtySelect().getAttribute("value");
-        for(int i=0; i < Integer.parseInt(qty); ++i) {
+        final int MAX_ARROW_UP = Integer.parseInt(qty) - Integer.parseInt(initValue);
+        for (int i = 0; i < MAX_ARROW_UP; ++i) {
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {
@@ -42,9 +45,11 @@ public class BasketPage extends BasePage {
         }
         return this;
     }
+
     public BasketPage decreaseQtyBy(String qty) {
         String initValue = upDownQtySelect().getAttribute("value");
-        for(int i=0; i < Integer.parseInt(qty); ++i) {
+        final int MAX_ARROW_DOWN = Integer.parseInt(initValue) - Integer.parseInt(qty);
+        for (int i = 0; i < MAX_ARROW_DOWN; ++i) {
 //            try {
 //                Thread.sleep(2000);
 //            } catch (InterruptedException e) {
@@ -54,15 +59,35 @@ public class BasketPage extends BasePage {
         }
         return this;
     }
+
+    public BasketPage setQtyToZero() {
+        String initValue = upDownQtySelect().getAttribute("value");
+        for (int i = 0; i < Integer.parseInt(initValue); ++i) {
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+            upDownQtySelect().sendKeys(Keys.ARROW_DOWN);
+        }
+        return new BasketPage(driver);
+    }
+
+    By emptyConfirmationBy = By.cssSelector("p.cart-empty");
+    public String getEmptyConfirmationMsg() {
+        return driver.findElement(emptyConfirmationBy).getText();
+    }
     By titleBy = By.cssSelector("td.product-name");
+
     public String getTitle() {
         return driver.findElement(titleBy).getText();
     }
 
     By subtotalBy = By.xpath("//td[@data-title='Subtotal']");
+
     public String getSubtotal() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -70,11 +95,13 @@ public class BasketPage extends BasePage {
     }
 
     By taxBy = By.xpath("//td[@data-title='Tax']");
+
     public String getTax() {
         return driver.findElement(taxBy).getText();
     }
 
     By proceedButtonBy = By.cssSelector(".checkout-button");
+
     public OrderPage openOrderPage() {
         driver.findElement(proceedButtonBy).click();
         return new OrderPage(driver);
@@ -85,6 +112,7 @@ public class BasketPage extends BasePage {
     }
 
     By updateBasketBy = By.name("update_cart");
+
     public BasketPage updateBasket() {
         try {
             Thread.sleep(2000);
@@ -94,5 +122,4 @@ public class BasketPage extends BasePage {
         driver.findElement(updateBasketBy).click();
         return this;
     }
-
 }

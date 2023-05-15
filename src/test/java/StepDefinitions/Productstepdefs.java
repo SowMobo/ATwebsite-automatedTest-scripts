@@ -15,7 +15,7 @@ public class Productstepdefs {
 
     @And("je click sur le logo AT depuis la page product")
     public void jeClickSurLeLogoATDepuisLaPageProduct() {
-        product.openHomePage();
+        product.header.openHomePage();
     }
 
     @Then("le titre Product Description est affichee")

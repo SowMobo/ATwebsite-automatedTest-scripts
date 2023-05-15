@@ -20,7 +20,7 @@ public class MyAccountStepdefs {
     }
     @And("je click sur le lien shop")
     public void jeClickSurLeLienShop() {
-        myAccount.openShopPage();
+        myAccount.header.openShopPage();
     }
 
     @When("je click sur le lien Account Details")
@@ -33,4 +33,8 @@ public class MyAccountStepdefs {
         Assert.assertTrue(myAccount.getWelcomeMsg().contains(arg0));
     }
 
+    @When("je click sur le logo BASKET depuis la page My Account")
+    public void jeClickSurLeLogoBASKETDepuisLaPageMyAccount() {
+        myAccount.header.openBasketByLogo();
+    }
 }

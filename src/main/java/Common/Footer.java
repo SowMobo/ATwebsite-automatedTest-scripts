@@ -1,7 +1,9 @@
 package Common;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class Footer {
     public WebDriver driver;
@@ -18,15 +20,46 @@ public class Footer {
      * @param email
      * @return a Footer object
      */
-    public Footer enterAnEmailToSubscribe(String email) {
+    public BasePage enterAnEmailToSubscribe(String email) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Actions action = new Actions(driver);
+        // scroll down
+        action.sendKeys(Keys.PAGE_DOWN).build().perform();
+        action.sendKeys(Keys.PAGE_DOWN).build().perform();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         driver.findElement(subscribeTextBoxBy).sendKeys(email);
-        return this;
+        return new BasePage(driver);
     }
+
     By subscribeButtonBy = By.xpath("//input[@value='Subscribe']");
     public Footer subscribeToATNewsletter() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        Actions action = new Actions(driver);
+        // scroll down
+        action.sendKeys(Keys.PAGE_DOWN).build().perform();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         driver.findElement(subscribeButtonBy).click();
         return this;
     }
+
     By invalidEmailErrorMessage = By.cssSelector(".mc4wp-response");
 
     /**
@@ -36,5 +69,15 @@ public class Footer {
      */
     public String getInvalidEmailErrorMessage() {
         return driver.findElement(invalidEmailErrorMessage).getText();
+    }
+
+
+    /**
+     * Get the confirmation message displayed after a success subscription
+     */
+    By errorMsgBy = By.cssSelector("div.mc4wp-alert.mc4wp-error");
+    By successMsgBy = By.cssSelector(".mc4wp-alert.mc4wp-success");
+    public String getSubscriptionConfirmationMsg() {
+        return driver.findElement(errorMsgBy).getText();
     }
 }
