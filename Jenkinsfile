@@ -12,7 +12,7 @@ pipeline {
 // //                 unzip  dir: 'src/test/rersources/features', glob: ' ', zipFile: 'features.zip'
 //                 sh "rm features.zip"
 //             }
-        }
+//         }
         stage('Launch Tests') {
             steps {
                  sh "mvn clean test -Dtest=RunCucumberTest"
