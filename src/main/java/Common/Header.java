@@ -1,8 +1,10 @@
 package Common;
 
 import PagesObjectsModels.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,10 +12,26 @@ public class Header {
     public WebDriver driver;
     public Header(WebDriver driver) {
         this.driver = driver;
-    }
-    public Header() {
         // Often we will use PageFactor to make some sections of code more readable
         PageFactory.initElements(driver, this);
+    }
+    By dismissAdButtonBy = By.cssSelector("#dismiss-button");
+    /**
+     * This method walks through two iframes to close ad and switches back to default next Page
+     */
+    public void closeAd() {
+//        driver.switchTo().frame("aswift_7_host");
+        driver.switchTo().frame("aswift_7");
+        driver.switchTo().frame("ad_iframe");
+        driver.findElement(dismissAdButtonBy).click();
+        driver.switchTo().defaultContent();
+    }
+
+    By htmlBy = By.tagName("html");
+    public void closePopup() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(driver.findElement(htmlBy));
+        actions.moveByOffset(-400, 0).click().build().perform();
     }
 
     @FindBy(id = "site-logo")
@@ -46,6 +64,7 @@ public class Header {
      */
     public ShopPage openShopPage() {
         shop.click();
+        this.closePopup();
         return new ShopPage(driver);
     }
     @FindBy(id = "menu-item-50")
@@ -74,6 +93,7 @@ public class Header {
      */
     public AuthenticationPage openAuthenticationPage() {
         this.postRequestToAccessMyAccount();
+        this.closePopup();
         return new AuthenticationPage(driver);
     }
 
@@ -81,6 +101,18 @@ public class Header {
         private WebElement basket;
     public BasketPage openCartPage() {
         basket.click();
+        return new BasketPage(driver);
+    }
+
+    By linkBasketBy = By.cssSelector("i.wpmenucart-icon-shopping-cart-0");
+    public BasketPage openBasketByLogo() {
+        //this.closePopup();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        driver.findElement(linkBasketBy).click();
         return new BasketPage(driver);
     }
 }

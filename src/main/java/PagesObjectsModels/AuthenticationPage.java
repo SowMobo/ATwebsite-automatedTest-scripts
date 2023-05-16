@@ -77,7 +77,7 @@ public class AuthenticationPage extends BasePage {
 
     public MyAccountPage loginWith(String username, String password) {
         return this.openSUT()
-                .openAuthenticationPage()
+                .header.openAuthenticationPage()
                 .enterUsernameOrEmail(username)
                 .enterPassword(password)
                 .openMyAccount();

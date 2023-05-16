@@ -51,4 +51,19 @@ public class BasketStepdefs {
 //            throw new RuntimeException(e);
 //        }
     }
+
+    @And("je mets la quantite a zero")
+    public void jeMetsLaQuantiteAZero() {
+        basket.setQtyToZero();
+    }
+
+    @Then("un message de confirmation est affichee sur la page BASKET {string}")
+    public void unMessageDeConfirmationEstAfficheeSurLaPageBASKET(String arg0) {
+        Assert.assertEquals(arg0, basket.getEmptyConfirmationMsg());
+    }
+
+    @And("je diminue la quantite {string}")
+    public void jeDiminueLaQuantite(String arg0) {
+        basket.decreaseQtyBy(arg0);
+    }
 }

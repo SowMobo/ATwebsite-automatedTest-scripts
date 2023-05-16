@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run:
           name: "Launch tests"
-          command: mvn clean test -Dtest=TestsRunner
+          command: mvn clean test -Dtest=RunCucumberTest
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows

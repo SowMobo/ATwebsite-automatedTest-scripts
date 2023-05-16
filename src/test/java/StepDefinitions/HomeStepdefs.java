@@ -21,14 +21,14 @@ public class HomeStepdefs {
 
     @When("je click sur le lien My Account")
     public void jeClickSurLeLienMyAccount() {
-        home.openAuthenticationPage();
-        home.closePopup();
+        home.header.openAuthenticationPage();
+        home.header.closePopup();
     }
 
 
     @And("je click sur le logo AT")
     public void jeClickSurLeLogoAT() {
-        home.openHomePage();
+        home.header.openHomePage();
     }
 
     @Then("le titre new arrivals est affiche")

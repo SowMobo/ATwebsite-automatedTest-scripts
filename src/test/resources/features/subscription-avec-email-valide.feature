@@ -45,4 +45,5 @@ Feature: Souscription à la Newsletter
 		
 		Examples:
 		  |email                    |expectedMgs|
-		  |xxx@yyy.fr                  |Thank you, your sign-up request was successful! Please check your email inbox to confirm.|
+		  |xxx@yyy.fr               |Thank you, your sign-up request was successful! Please check your email inbox to confirm.|
+		  |xxx@yyy.fr               |Oops. Something went wrong. Please try again later.|
